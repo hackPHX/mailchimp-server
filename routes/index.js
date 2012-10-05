@@ -32,7 +32,8 @@ exports.index = function(req, res){
     }
   }, function (error, data) {
     if (error){
-      res.end(error.message);
+      console.log(error.message);
+      res.end('An error has occurred. Please try again.');
     } else {
       if(data === true){
         res.end('Please check your email to confirm your subscription.');
