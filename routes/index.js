@@ -33,12 +33,18 @@ exports.index = function(req, res){
   }, function (error, data) {
     if (error){
       console.log(error.message);
-      res.end('An error has occurred. Please try again.');
+      res.jsonp({
+        error: 'An error has occurred. Please try again.'
+      });
     } else {
       if(data === true){
-        res.end('Please check your email to confirm your subscription.');
+        res.jsonp({
+          success: 'Please check your email to confirm your subscription.'
+        });
       } else {
-        res.end(JSON.stringify(data));
+        res.jsonp({
+          success: data
+        });
       }
     }
   });
